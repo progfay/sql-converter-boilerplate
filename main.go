@@ -46,7 +46,13 @@ func convertInsertStmt(node *ast.InsertStmt) (string, error) {
 
 	case "icon":
 		for i := 0; i < len(node.Lists); i++ {
-			node.Lists[i] = append(node.Lists[i][:2])
+			/*
+			// If required when column name is specified
+			// ex. INSERT INTO icon(id, name, content) VALUES(...);
+			//                     ~~~~~~~~~~~~~~~~~~~ ← here
+			node.Columns = node.Columns[:2]
+			*/
+			node.Lists[i] = node.Lists[i][:2]
 		}
 
 	default:
