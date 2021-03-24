@@ -185,7 +185,6 @@ func main() {
 			continue
 		}
 
-		log.Println(converted)
 		fmt.Println("\n" + converted + ";")
 	}
 }
